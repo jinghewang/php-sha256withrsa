@@ -1,0 +1,22 @@
+{
+    "name": "jinghewang/php-utils",
+    "description": "php utils",
+    "keywords": ["php", "utils"],
+    "homepage": "http://github.com/jinghewang/php-utils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jinghewang",
+            "email": "jinghewang@163.com",
+            "homepage": "http://github.com/jinghewang"
+        }
+    ],
+    "require": {
+        "php": ">=5.6",
+        "psr/log": "^1.0.1"
+    },
+    "autoload": {
+        "psr-4": {"Monolog\\": "src/Monolog"}
+    }
+}
