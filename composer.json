@@ -1,5 +1,5 @@
 {
-    "name": "jinghewang/php-utils",
+    "name": "woodw/php-utils",
     "description": "php utils",
     "keywords": ["php", "utils"],
     "homepage": "http://github.com/jinghewang/php-utils",
@@ -8,8 +8,7 @@
     "authors": [
         {
             "name": "jinghewang",
-            "email": "jinghewang@163.com",
-            "homepage": "http://github.com/jinghewang"
+            "email": "jinghewang@163.com"
         }
     ],
     "require": {
@@ -17,6 +16,6 @@
         "psr/log": "^1.0.1"
     },
     "autoload": {
-        "psr-4": {"Monolog\\": "src/Monolog"}
+        "psr-4": {"Woodw\\": "src/"}
     }
 }
