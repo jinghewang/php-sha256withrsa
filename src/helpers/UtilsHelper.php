@@ -1,6 +1,7 @@
 <?php
-
 namespace Woodw\Helpers;
+
+use Woodw\Bases\HelperBase;
 
 /**
  * Created by PhpStorm.

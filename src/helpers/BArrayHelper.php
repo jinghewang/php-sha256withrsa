@@ -116,36 +116,6 @@ class BArrayHelper {
     }
 
 
-    /**
-     * 判断数组是否CActiveRecord
-     * @author wjh 2014-6-13
-     * @param array $model
-     * @return bool
-     */
-    public static function isCActiveRecord($model) {
-
-        if ($model instanceof \Phalcon\Mvc\Model) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 判断2维数组是否CActiveRecord 数组
-     * @author wjh 2014-6-13
-     * @param array $models
-     * @return bool
-     */
-    public static function isCActiveRecordArray($models) {
-
-        foreach ($models as $row) {
-            if(!$row instanceof \Phalcon\Mvc\Model){
-                return false;
-            }
-        }
-        return true;
-    }
-
      /**
       * 将同构的多维多层次数组递归的方法转化为2维数组
       * @param array $arr
