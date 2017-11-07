@@ -21,4 +21,13 @@ class Utils extends UtilsHelper
     public static function hello($message){
         echo "hello:$message";
     }
+
+    /**
+     * test
+     * @author wjh 2017-11-06
+     * @param string $message
+     */
+    public static function test($message){
+        echo "test:$message";
+    }
 }
