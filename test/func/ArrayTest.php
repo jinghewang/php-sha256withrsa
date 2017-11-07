@@ -35,53 +35,14 @@ class ArrayTest extends BaseTestCase{
     /**
      * @test
      */
-    public function array_flip_test() {
+    public function test22() {
         $this->title(__METHOD__);
 
-        //--
-        $input = array("a" => 1, "b" => 2, "c" => 3);
-        print_r2($input);
+        $this->assertEmpty('');
 
-        //--
-        $input2 = array_flip($input);
-        print_r2($input2);
-
-        $this->title('each');
-        $foo = array("Robert" => "Bob", "Seppo" => "Sepi");
-        while(list($bar,$bar2) = each($foo)){
-            $this->info("{$bar} -- {$bar2}");
-        }
-
-        $this->title('array_map');
-        $data =  array_map(function ($value){
-            $this->error($value);
-            return $value.= '-1';
-        },$foo);
-
-        $this->info($data);
-
-        $this->title('array_filter');
-        $array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
-        $data =  array_filter($array1,function ($value,$key){
-            $this->error("$value,$key");
-            return $value>3;
-        },ARRAY_FILTER_USE_BOTH);
-        $this->info($data);
-
-        //---
-        $this->title('static var');
-        $this->myTest();
-        $this->myTest();
-        $this->myTest();
-
-        print 'wjhlht';
+        $this->assertEmpty('1');
     }
 
-    private function myTest() {
-        static $x =0;
-        $this->info( $x);
-        $x++;
-    }
 
 
     protected function tearDown() {
