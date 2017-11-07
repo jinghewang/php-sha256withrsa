@@ -18,6 +18,6 @@
         "monolog/monolog": "^1.23"
     },
     "autoload": {
-        "psr-4": {"Woodw\\": "src/"}
+        "psr-4": {"Woodw\\Utils\\": "src/"}
     }
 }

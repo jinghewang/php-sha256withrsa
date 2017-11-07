@@ -1,8 +1,8 @@
 <?php
 
-namespace Woodw;
+namespace Woodw\Utils;
 
-use Woodw\Helpers\UtilsHelper;
+use Woodw\Utils\Helpers\UtilsHelper;
 
 /**
  * Created by PhpStorm.

@@ -1,8 +1,8 @@
 <?php
-namespace Woodw\Helpers;
+namespace Woodw\Utils\Helpers;
 
 
-class BArrayHelper {
+class ArrayHelper {
 
     /**
       * 将2维数组中第二维数组的指定键的值转化为第一维数组的索引
@@ -60,7 +60,7 @@ class BArrayHelper {
             $values = array($values);
 
         return array_filter($arr, function ($v) use ($values) {
-            return !BArrayHelper::array_value_exists($v,$values);
+            return !ArrayHelper::array_value_exists($v,$values);
         });
     }
 
@@ -77,7 +77,7 @@ class BArrayHelper {
 
         $arr = array_flip($arr);
         $data = array_filter($arr, function ($v) use ($keys) {
-            return !BArrayHelper::array_value_exists($v,$keys);
+            return !ArrayHelper::array_value_exists($v,$keys);
         });
         return array_flip($data);
     }
@@ -329,7 +329,7 @@ class BArrayHelper {
      * @return string
      */
     public static function getKey($arr,$text){
-        $result = BArrayHelper::array_func($arr,
+        $result = ArrayHelper::array_func($arr,
             function($k, $v, $userdata) use($text) {
                 return $k;
             },

@@ -7,7 +7,7 @@
  * Time: 上午8:38
  */
 
-namespace Woodw\Bases;
+namespace Woodw\Utils\Bases;
 
 
 class HelperBase
