@@ -14,3 +14,5 @@ use \Woodw\Utils\Helpers\LoggerHelper;
 
 LoggerHelper::title('me is good');
 LoggerHelper::alert('xds');
+
+\Woodw\Utils\Helpers\UtilsHelper::print_p(123,345,789);

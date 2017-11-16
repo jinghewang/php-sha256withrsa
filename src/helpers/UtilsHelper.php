@@ -32,115 +32,6 @@ class UtilsHelper extends HelperBase
     }
 
 
-    /**
-     * 验证是否进行调试
-     * @author wjh 2017-08-02
-     * @param string $key key 如 ：api
-     * @param string $filter filter 如：api_filter
-     * @param string $content
-     * @param bool $exclude 验证模式 默认 exclude
-     * @return bool
-     */
-    public static function validateDebugInfo($key, $filter, $content, $exclude = true) {
-        $model = UtilsHelper::getDebugInfoConfig($key,0);
-        if (empty($model))
-            return false;
-
-        $pattern = UtilsHelper::getDebugInfoConfig($filter, '');
-        if (!empty($pattern)) {
-            $match = preg_match($pattern, $content, $matches);
-            if ($exclude) {//exclude
-                return !($match == 1);
-            } else {//include
-                return $match == 1;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * 获取打印配置信息
-     * @author wjh
-     * @date 20160420
-     * @param string $key 配置项
-     * @param null $defaultValue 默认值
-     * @return mixed
-     */
-    public static function getPrinterConfig($key = null, $defaultValue = null)
-    {
-        if (empty($key))
-            return self::getConfig('printer', $defaultValue);
-        else
-            return self::getConfigValue('printer', $key, $defaultValue);
-    }
-
-    /**
-     * 获取调试配置信息
-     * @author wjh
-     * @date 20160420
-     * @param string $key 配置项
-     * @param null $defaultValue 默认值
-     * @return mixed
-     */
-    public static function getDebugInfoConfig($key = null, $defaultValue = null)
-    {
-        if (empty($key))
-            return self::getConfig('debug_info', $defaultValue);
-        else
-            return self::getConfigValue('debug_info', $key, $defaultValue);
-    }
-
-
-    /**
-     * 获取beanstalk配置信息
-     * @author wjh
-     * @date 2017-08-01 11:05:01
-     * @param string $key 配置项
-     * @param null $defaultValue 默认值
-     * @return mixed
-     */
-    public static function getBeanstalkConfig($key = null, $defaultValue = null)
-    {
-        if (empty($key))
-            return self::getConfig('beanstalk', $defaultValue);
-        else
-            return self::getConfigValue('beanstalk', $key, $defaultValue);
-    }
-
-
-    /**
-     * 获取Phalcon配置信息
-     * @author wjh
-     * @date 2017-08-01 11:05:01
-     * @param string $key 配置项
-     * @param null $defaultValue 默认值
-     * @return mixed
-     */
-    public static function getPhalconConfig($key = null, $defaultValue = null)
-    {
-        if (empty($key))
-            return self::getConfig('phalcon', $defaultValue);
-        else
-            return self::getConfigValue('phalcon', $key, $defaultValue);
-    }
-
-
-    /**
-     * 获取Log配置信息
-     * @author wjh 2017-08-02
-     * @param string $key 配置项
-     * @param mixed $defaultValue 默认值
-     * @return mixed
-     */
-    public static function getLogConfig($key = null, $defaultValue = null)
-    {
-        if (empty($key))
-            return self::getConfig('log', $defaultValue);
-        else
-            return self::getConfigValue('log', $key, $defaultValue);
-    }
-
 
 
     /**
@@ -184,4 +75,65 @@ class UtilsHelper extends HelperBase
         $path = pathinfo($file);
         return $path['dirname'];
     }
+
+    /**
+     * override print_r
+     * @author wjh 2014-7-1
+     * @param $expression
+     * @param array $other
+     */
+    public static function print_r($expression,...$other) {
+        return self::print_p($expression,$other);
+    }
+
+
+    /**
+     * print_p
+     * @author @author wjh 2017-11-16
+     * @param $expression
+     * @param array $other
+     */
+    public static function print_p($expression,...$other){
+        self::addPreStart();
+        if (!empty($expression))
+            print_r($expression);
+
+        foreach ($other as $item) {
+            if (!empty($item)){
+                print_r($item);
+            }
+        }
+        static::addPreEdn();
+    }
+
+    /**
+     * 在输出中添加<pre>
+     * @author wjh
+     * @version 2014-4-30
+     * @return header
+     */
+    public static function addPreStart() {
+        print "<pre>";
+    }
+
+    /**
+     * 在输出中添加</pre>
+     * @author wjh
+     * @version 2014-4-30
+     * @return header
+     */
+    public static function addPreEdn() {
+        print "</pre>";
+    }
+
+    /**
+     * 在输出中添加<br>
+     * @author wjh
+     * @version 2014-4-30
+     * @return header
+     */
+    public static function addBr() {
+        print "<br>";
+    }
+
 }
