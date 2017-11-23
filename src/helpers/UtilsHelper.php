@@ -106,6 +106,27 @@ class UtilsHelper extends HelperBase
         static::addPreEdn();
     }
 
+
+    /**
+     * print_rc
+     * @author @author wjh 2017-11-16
+     * @param $expression
+     * @param array $other
+     */
+    public static function print_rc($expression,...$other){
+        //self::addPreStart();
+        if (!empty($expression))
+            print_r($expression);
+
+        foreach ($other as $item) {
+            if (!empty($item)){
+                print_r($item);
+            }
+        }
+        echo PHP_EOL;
+    }
+
+
     /**
      * 在输出中添加<pre>
      * @author wjh
