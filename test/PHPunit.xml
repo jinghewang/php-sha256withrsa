@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="./BaseTestCase.php"
+         backupGlobals="false"
+         backupStaticAttributes="false"
+         verbose="true"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         >
+    <testsuite name="php-utils - Testsuite">
+        <directory>./func/ArrayTest.php</directory>
+        <!--<directory>./func/StringTest.php</directory>-->
+    </testsuite>
+</phpunit>
