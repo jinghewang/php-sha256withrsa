@@ -8,13 +8,10 @@
 
 namespace Woodw\Test;
 
-require_once dirname(__DIR__) . "/BaseTestCase.php";
-
 use \PHPUnit\Framework\TestCase;
 use Woodw\Test\BaseTestCase;
-use Woodw\Utils\Helpers\ArrayHelper;
 
-class ArrayTest extends BaseTestCase{
+class StringTest extends BaseTestCase{
 
 
     public $name = 'wjh';
@@ -32,21 +29,20 @@ class ArrayTest extends BaseTestCase{
     }
 
 
+
     /**
      * @test
      */
-    public function array_value_exists( ){
+    public function test22444() {
+        var_dump(__METHOD__);
 
-        $search = ['123', '456', '789'];
+        $this->assertEmpty('');
+        $this->assertEmpty('');
+        $this->assertEmpty('');
 
-        $value = '123';
-        $condition = ArrayHelper::array_value_exists($value, $search);
-        $this->assertTrue($condition, "{$value} in");
-
-        $value = '12';
-        $condition1 = ArrayHelper::array_value_exists($value, $search);
-        $this->assertFalse($condition1,"{$value} not in");
+        //$this->assertEmpty('1','332');
     }
+
 
 
     protected function tearDown() {
