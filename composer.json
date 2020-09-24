@@ -1,7 +1,7 @@
 {
     "name": "woodw/sha256withrsa",
-    "description": "SHA256withRSA",
-    "keywords": ["php", "sha256withrsa"],
+    "description": "SHA256withRSA for PHP",
+    "keywords": ["SHA256withRSA", "SHA256", "RSA", "sha256withrsa"],
     "homepage": "http://github.com/jinghewang/php-sha256withrsa",
     "type": "library",
     "license": "MIT",
@@ -12,7 +12,9 @@
         }
     ],
     "require": {
-        "php": ">=7.1",
+        "php": ">=7.1"
+    },
+    "require-dev": {
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
