@@ -1,8 +1,8 @@
 {
-    "name": "woodw/php-utils",
-    "description": "php utils",
-    "keywords": ["php", "utils"],
-    "homepage": "http://github.com/jinghewang/php-utils",
+    "name": "woodw/sha256withrsa",
+    "description": "SHA256withRSA",
+    "keywords": ["php", "sha256withrsa"],
+    "homepage": "http://github.com/jinghewang/php-sha256withrsa",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -16,6 +16,6 @@
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
-        "psr-4": {"Woodw\\Utils\\": "src/"}
+        "psr-4": {"Woodw\\": "src/"}
     }
 }
