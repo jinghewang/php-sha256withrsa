@@ -26,4 +26,16 @@ class BaseTestCase extends TestCase {
         parent::tearDownAfterClass();
     }
 
+    /**
+     * print_r for console
+     * @author wjh 2020-09-24
+     * @param mixed ...$args
+     */
+    protected function print_rc(...$args) {
+        echo PHP_EOL;
+        array_map(function ($item) {
+            echo($item . PHP_EOL);
+        }, $args);
+    }
+
 }

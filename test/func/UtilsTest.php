@@ -36,32 +36,8 @@ class UtilsTest extends BaseTestCase{
     public function current() {
 
         //2020-01-21 16:20:05
-        $time = UtilsHelper::getCurrentTime();
-        $this->assertTrue(strlen($time) == 19);
-
-        //2020-01-21 16:20:05 644
-        $micro_time = UtilsHelper::getCurrentMicroTime();
-        $this->assertTrue(strlen($micro_time) == 23);
-
         //$this->assertEmpty('1','332');
     }
-
-    /**
-     * @test
-     */
-    public function time() {
-
-        //2020-01-21 16:20:05
-        $time = UtilsHelper::getCurrentTime();
-        $this->assertTrue(strlen($time) == 19);
-
-        //2020-01-21 16:20:05 644
-        $micro_time = UtilsHelper::getCurrentMicroTime();
-        $this->assertTrue(strlen($micro_time) == 23);
-
-        //$this->assertEmpty('1','332');
-    }
-
 
 
     protected function tearDown() {
