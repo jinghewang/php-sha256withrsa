@@ -45,8 +45,7 @@ FvsaQc6iqG65ExLC1eW8bXS+PnAMVhEfLd6O/uJn9S3cNzlVdvZ41Fbh6Pw9u1SwBbQ3OkDV0DdfwYWJ
 ```
 
 # 版本说明
-
-
+实现 SHA256withRSA 功能。
 
 
 # 测试
@@ -67,5 +66,5 @@ FvsaQc6iqG65ExLC1eW8bXS+PnAMVhEfLd6O/uJn9S3cNzlVdvZ41Fbh6Pw9u1SwBbQ3OkDV0DdfwYWJ
 ./phpunit
 ```
 
-# 更新说明
-> 此项目不定时更新，更新时间不定，请见谅。
+# referred
+- [packagist](https://packagist.org/)
