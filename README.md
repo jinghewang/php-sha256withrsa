@@ -11,11 +11,11 @@ $service = new SHA256withRSAService(['rsa_public_key' => $config['rsa_public_key
 $text = "i am is mingwen";
 
 //计算签名
-$sign = $service->SignStrMessage($text);
+$sign = $service->rsaSign($text);
 echo('签名:'.$sign);
 
 //验证签名
-$verifyResult = $service->VerifyStrMessage($text, $sign);
+$verifyResult = $service->rsaCheck($text, $sign);
 echo('签名验证:' . $verifyResult);
 
 //如果需要处理  array -> url  调用如下方法：
@@ -52,11 +52,11 @@ FvsaQc6iqG65ExLC1eW8bXS+PnAMVhEfLd6O/uJn9S3cNzlVdvZ41Fbh6Pw9u1SwBbQ3OkDV0DdfwYWJ
 
 * 运行方式1：(命令行方式)
 ```bash
-./phpunit func/SignTest.php
+./phpunit func/SignTest2.php
 ```
 或 
 ```bash
-./phpunit --bootstrap BaseTestCase.php func/SignTest.php 
+./phpunit --bootstrap BaseTestCase.php func/SignTest2.php 
 ```
 
 * 运行方式2：（通过 phpunit.xml 运行）  

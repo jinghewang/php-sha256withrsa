@@ -32,7 +32,7 @@ class SHA256withRSAService
      * @throws \Exception
      */
     public function __construct(array $config) {
-        if (empty($config) || empty($config['rsa_public_key']) || empty($config['rsa_private_key']))
+        if (empty($config) || (empty($config['rsa_public_key']) && empty($config['rsa_private_key'])))
             throw new \Exception('config is empty');
 
         $this->config = $config;
@@ -40,9 +40,21 @@ class SHA256withRSAService
 
 
     /**
+     * 字符串签名 同 SignStrMessage
+     * @param string $resource 签名内容
+     * @return string 签名
+     * @throws \Exception
+     */
+    public function rsaSign($resource) {
+        return $this->SignStrMessage($resource);
+    }
+
+
+    /**
      * 字符串签名
      * @param string $resource 签名内容
      * @return string 签名
+     * @deprecated
      * @throws \Exception
      */
     public function SignStrMessage($resource) {
@@ -58,10 +70,24 @@ class SHA256withRSAService
 
 
     /**
+     * 字符串验签 同 VerifyStrMessage
+     * @param string $resource
+     * @param string $signature
+     * @return bool
+     * @throws \Exception
+     */
+    public function rsaCheck($resource, $signature) {
+        return $this->VerifyStrMessage($resource,$signature);
+    }
+
+
+    /**
      * 字符串验签
      * @param string $resource
      * @param string $signature
      * @return bool
+     * @deprecated
+     * @throws \Exception
      */
     public function VerifyStrMessage($resource, $signature) {
         $signature = base64_decode($signature);
@@ -71,23 +97,33 @@ class SHA256withRSAService
         return $res === 1 ? true : false;
     }
 
+
     /**
      * 获取平台私钥
      * @return string
+     * @throws \Exception
      */
     private function GetPrivateKey() {
         $privateKey = $this->config['rsa_private_key'];
+        if (empty($privateKey))
+            throw new \Exception("rsa_private_key is empty", 10001);
+
         $privateKey = chunk_split($privateKey, 64, "\n");
         $privateKey = "-----BEGIN RSA PRIVATE KEY-----\n$privateKey-----END RSA PRIVATE KEY-----\n";
         return $privateKey;
     }
 
+
     /**
      * 获取商户公钥
      * @param $mer_public_key
      * @return string
+     * @throws \Exception
      */
     private function GetPublicKey($mer_public_key) {
+        if (empty($mer_public_key))
+            throw new \Exception("mer_public_key is empty", 10001);
+
         $publicKey = chunk_split($mer_public_key, 64, "\n");
         $publicKey = "-----BEGIN PUBLIC KEY-----\n$publicKey-----END PUBLIC KEY-----\n";
         return $publicKey;
